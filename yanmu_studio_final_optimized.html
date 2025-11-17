@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yanmu Studio | DeepTech Stories That Grow</title>
+    <meta name="description" content="Hardware pitch deck design specialist. 250+ pitches reviewed, POESAM winners supported. We turn complex DeepTech into investment-ready stories.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Righteous&family=DM+Sans:wght@400;500;600;700;800;900&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gradient-hero: linear-gradient(180deg, #0A0A0B 0%, #1a1a2e 100%);
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #4facfe 100%);
+            --gradient-accent: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+
+            --bg-dark: #0A0A0B;
+            --bg-elevated: #121216;
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-tertiary: rgba(255, 255, 255, 0.5);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent-purple: #8B5CF6;
+            --accent-blue: #3B82F6;
+            --accent-green: #10B981;
+            --accent-red: #EF4444;
+        }
+
+        body {
+            font-family: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Enhanced Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: all 0.15s ease;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+
+        .cursor::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .cursor.hover {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-secondary);
+            border: none;
+        }
+
+        .cursor.hover::before {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            body { cursor: default; }
+            .cursor { display: none; }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(10, 10, 11, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 40px;
+            font-weight: 900;
+            font-family: 'Righteous', cursive;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .logo-arabic {
+            font-size: 44px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 800;
+            opacity: 0.95;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .cta-button {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 14px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            box-shadow: 0 4px 20px rgba(75, 172, 254, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(75, 172, 254, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+            background: var(--gradient-hero);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-secondary);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(139, 92, 246, 0.15);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 50px;
+            color: var(--accent-purple);
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 84px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 32px;
+            font-family: 'Righteous', cursive;
+            letter-spacing: -0.03em;
+            color: white;
+        }
+
+        .hero-founder-speak {
+            font-size: 32px;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .hero-founder-speak strong {
+            color: white;
+            font-weight: 700;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .cta-button-secondary {
+            background: transparent;
+            color: white;
+            padding: 14px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            font-size: 15px;
+        }
+
+        .cta-button-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 60px;
+            padding-top: 40px;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            font-family: 'Righteous', cursive;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-tertiary);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 140px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 50px;
+            color: var(--accent-purple);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            font-family: 'Righteous', cursive;
+            letter-spacing: -0.03em;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Comparison Table Section - NEW */
+        .comparison-section {
+            background: var(--bg-elevated);
+            padding: 100px 0;
+        }
+
+        .comparison-table-wrapper {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            background: var(--bg-dark);
+            border: 2px solid var(--border-color);
+            border-radius: 32px;
+            overflow: hidden;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table thead {
+            background: var(--bg-elevated);
+        }
+
+        .comparison-table th {
+            padding: 40px 32px;
+            text-align: center;
+            border-right: 1px solid var(--border-color);
+            font-size: 28px;
+            font-weight: 900;
+            font-family: 'Righteous', cursive;
+        }
+
+        .comparison-table th:first-child {
+            text-align: left;
+        }
+
+        .comparison-table th:last-child {
+            border-right: none;
+        }
+
+        .comparison-highlight {
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .comparison-highlight::after {
+            content: 'YOU';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 4px 16px;
+            background: var(--gradient-accent);
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 900;
+            color: white;
+            letter-spacing: 0.1em;
+        }
+
+        .comparison-table tbody tr {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-table td {
+            padding: 32px;
+            text-align: center;
+            border-right: 1px solid var(--border-color);
+            font-size: 16px;
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 18px;
+        }
+
+        .comparison-table td:last-child {
+            border-right: none;
+        }
+
+        .comparison-check {
+            color: var(--accent-green);
+            font-size: 32px;
+        }
+
+        .comparison-cross {
+            color: var(--accent-red);
+            font-size: 28px;
+            opacity: 0.4;
+        }
+
+        .comparison-maybe {
+            color: var(--text-tertiary);
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        .comparison-highlight-col {
+            background: rgba(139, 92, 246, 0.03);
+        }
+
+        /* Process Timeline Section - NEW */
+        .process-section {
+            background: var(--bg-dark);
+            padding: 100px 0;
+        }
+
+        .process-timeline {
+            max-width: 1000px;
+            margin: 60px auto 0;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 80px;
+            bottom: 80px;
+            width: 2px;
+            background: var(--gradient-secondary);
+        }
+
+        .process-step {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number-badge {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-secondary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 900;
+            font-family: 'Righteous', cursive;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 8px 30px rgba(75, 172, 254, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-content {
+            flex: 1;
+            background: var(--bg-elevated);
+            border: 2px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .step-content:hover {
+            transform: translateX(10px);
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .step-day {
+            font-size: 14px;
+            color: var(--accent-purple);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .step-title {
+            font-size: 32px;
+            font-weight: 900;
+            font-family: 'Righteous', cursive;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .step-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .step-deliverables {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .deliverable-tag {
+            padding: 8px 16px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--accent-purple);
+            font-weight: 700;
+        }
+
+        /* Sliders */
+        .network-slider-section {
+            padding: 100px 0;
+            background: var(--bg-elevated);
+        }
+
+        .slider-container {
+            position: relative;
+            margin-top: 60px;
+        }
+
+        .swiper {
+            width: 100%;
+            padding: 40px 0;
+        }
+
+        .swiper-slide {
+            width: 400px;
+            height: 500px;
+        }
+
+        .agency-slide, .case-study-slide {
+            background: var(--bg-dark);
+            border: 2px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .agency-slide:hover, .case-study-slide:hover {
+            transform: translateY(-10px);
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+        }
+
+        .agency-image, .case-study-image {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agency-image img, .case-study-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .agency-slide:hover .agency-image img,
+        .case-study-slide:hover .case-study-image img {
+            transform: scale(1.1);
+        }
+
+        .agency-overlay, .case-study-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 11, 0.9) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+        }
+
+        .agency-logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--bg-dark);
+        }
+
+        .case-study-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+        }
+
+        .agency-info, .case-study-info {
+            padding: 32px;
+            flex: 1;
+        }
+
+        .agency-name, .case-study-name {
+            font-size: 28px;
+            font-weight: 900;
+            font-family: 'Righteous', cursive;
+            margin-bottom: 12px;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .agency-description, .case-study-description {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .agency-stats, .case-study-metrics {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .agency-stat, .case-study-metric {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-green);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .case-study-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .case-study-tag {
+            padding: 6px 16px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--accent-purple);
+            font-weight: 700;
+        }
+
+        .portfolio-filters {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 28px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-secondary);
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gradient-secondary);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 4px 20px rgba(75, 172, 254, 0.3);
+        }
+
+        .swiper-pagination {
+            bottom: 0 !important;
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--gradient-secondary);
+            width: 40px;
+            border-radius: 6px;
+        }
+
+        /* Pricing */
+        .pricing-comparison {
+            max-width: 1300px;
+            margin: 60px auto 0;
+            background: var(--bg-elevated);
+            border: 2px solid var(--border-color);
+            border-radius: 32px;
+            overflow: hidden;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .pricing-table thead {
+            background: var(--bg-dark);
+        }
+
+        .pricing-table th {
+            padding: 48px 40px;
+            text-align: center;
+            border-right: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .pricing-table th:first-child {
+            text-align: left;
+            width: 320px;
+        }
+
+        .pricing-table th:last-child {
+            border-right: none;
+        }
+
+        .plan-header {
+            position: relative;
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 6px 20px;
+            background: var(--gradient-accent);
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .plan-name {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            font-family: 'Righteous', cursive;
+        }
+
+        .plan-price {
+            font-size: 56px;
+            font-weight: 900;
+            font-family: 'Righteous', cursive;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .plan-period {
+            color: var(--text-tertiary);
+            font-size: 14px;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .plan-description {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .pricing-table tbody tr {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pricing-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-table td {
+            padding: 28px 40px;
+            text-align: center;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .pricing-table td:first-child {
+            text-align: left;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .pricing-table td:last-child {
+            border-right: none;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--accent-purple);
+            flex-shrink: 0;
+        }
+
+        .check-icon {
+            color: var(--accent-green);
+            font-size: 28px;
+        }
+
+        .cross-icon {
+            color: var(--text-tertiary);
+            font-size: 24px;
+            opacity: 0.3;
+        }
+
+        .feature-value {
+            color: var(--text-primary);
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: var(--bg-elevated);
+            border: 2px solid var(--border-color);
+            border-radius: 32px;
+            padding: 80px 60px;
+            margin-top: 80px;
+        }
+
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 2px solid var(--border-color);
+            padding: 36px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: 800;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--accent-purple);
+        }
+
+        .faq-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            background: var(--gradient-secondary);
+            border-color: transparent;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-secondary);
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 400px;
+            padding-top: 24px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gradient-hero);
+            border-top: 2px solid var(--border-color);
+            padding: 100px 0 40px;
+            margin-top: 140px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-secondary);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .footer-section h4 {
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: 28px;
+            font-family: 'Righteous', cursive;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 16px;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--text-primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--border-color);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gradient-secondary);
+            border-color: transparent;
+            transform: translateY(-4px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 48px;
+            border-top: 2px solid var(--border-color);
+            color: var(--text-tertiary);
+            font-size: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 64px;
+            }
+
+            .process-timeline::before {
+                left: 30px;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-founder-speak {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 48px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-comparison,
+            .comparison-table-wrapper {
+                overflow-x: auto;
+            }
+
+            .process-timeline::before {
+                display: none;
+            }
+
+            .step-number-badge {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-founder-speak {
+                font-size: 20px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">
+                Yanmu <span class="logo-arabic">ينمو</span>
+            </a>
+            <div class="nav-links">
+                <a href="#why-us">Why Us</a>
+                <a href="#process">Process</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label">For Hardware Founders</span>
+                <h1>
+                    Your Hardware Deserves<br>
+                    A Story That Wins
+                </h1>
+                <p class="hero-founder-speak">
+                    Hey founder, <strong>you've built something incredible</strong>—IoT devices, robotics, industrial tech that actually solves problems. But when you pitch to investors, they don't get it. <strong>We translate your technical genius into stories that close deals.</strong>
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="cta-button">
+                        <i class="fas fa-calendar" style="margin-right: 10px;"></i>
+                        Book Free Strategy Call
+                    </a>
+                    <a href="#portfolio" class="cta-button-secondary">
+                        <i class="fas fa-rocket" style="margin-right: 10px;"></i>
+                        See Our Work
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">250+</span>
+                        <span class="stat-label">Pitches Reviewed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Hackathons Won</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$2M+</span>
+                        <span class="stat-label">Funding Helped Raise</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Satisfaction Rate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table Section - NEW -->
+    <section id="why-us" class="comparison-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Why Choose Us</span>
+                <h2 class="section-title">We're Not Like<br>Everyone Else</h2>
+                <p class="section-subtitle">See exactly why hardware founders choose Yanmu Studio over freelancers or DIY templates</p>
+            </div>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="comparison-highlight-col">
+                                <span class="comparison-highlight">Yanmu Studio</span>
+                            </th>
+                            <th>Freelancer</th>
+                            <th>DIY Template</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Hardware Expertise</strong></td>
+                            <td class="comparison-highlight-col"><span class="comparison-check">✓</span></td>
+                            <td><span class="comparison-maybe">Maybe</span></td>
+                            <td><span class="comparison-cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Investor Knowledge</strong></td>
+                            <td class="comparison-highlight-col"><span class="comparison-check">✓</span></td>
+                            <td><span class="comparison-maybe">Maybe</span></td>
+                            <td><span class="comparison-cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Unlimited Revisions</strong></td>
+                            <td class="comparison-highlight-col"><span class="comparison-check">✓</span></td>
+                            <td><span class="comparison-cross">✗</span></td>
+                            <td><span style="color: var(--text-tertiary);">N/A</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Delivery Time</strong></td>
+                            <td class="comparison-highlight-col"><strong>2 weeks</strong></td>
+                            <td>3-4 weeks</td>
+                            <td>Months (DIY)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Strategy Included</strong></td>
+                            <td class="comparison-highlight-col"><span class="comparison-check">✓</span></td>
+                            <td><span class="comparison-cross">✗</span></td>
+                            <td><span class="comparison-cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>250+ Pitches Reviewed</strong></td>
+                            <td class="comparison-highlight-col"><span class="comparison-check">✓</span></td>
+                            <td><span class="comparison-cross">✗</span></td>
+                            <td><span class="comparison-cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Africa/MENA Optimized</strong></td>
+                            <td class="comparison-highlight-col"><span class="comparison-check">✓</span></td>
+                            <td><span class="comparison-maybe">Maybe</span></td>
+                            <td><span class="comparison-cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bilingual (EN/FR)</strong></td>
+                            <td class="comparison-highlight-col"><span class="comparison-check">✓</span></td>
+                            <td><span class="comparison-maybe">Extra cost</span></td>
+                            <td><span class="comparison-cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Network of Agencies</strong></td>
+                            <td class="comparison-highlight-col"><strong>5+ agencies</strong></td>
+                            <td>Solo designer</td>
+                            <td><span style="color: var(--text-tertiary);">N/A</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Success Rate</strong></td>
+                            <td class="comparison-highlight-col"><strong>100%</strong></td>
+                            <td>~70%</td>
+                            <td>~30%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline Section - NEW -->
+    <section id="process" class="process-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Process</span>
+                <h2 class="section-title">From Brief to Brilliance<br>in 14 Days</h2>
+                <p class="section-subtitle">Clear, transparent process. You always know what's happening and when to expect delivery.</p>
+            </div>
+
+            <div class="process-timeline">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="step-number-badge">1</div>
+                    <div class="step-content">
+                        <div class="step-day">Day 1-2</div>
+                        <h3 class="step-title">Discovery & Brief</h3>
+                        <p class="step-description">
+                            30-minute strategy call to understand your hardware, market, and fundraising goals. We dig deep into your tech, competition, and investor targets.
+                        </p>
+                        <div class="step-deliverables">
+                            <span class="deliverable-tag">Strategy Call</span>
+                            <span class="deliverable-tag">Content Brief</span>
+                            <span class="deliverable-tag">Timeline Confirmed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="step-number-badge">2</div>
+                    <div class="step-content">
+                        <div class="step-day">Day 3-7</div>
+                        <h3 class="step-title">First Draft Delivery</h3>
+                        <p class="step-description">
+                            We craft your story, design your slides, and translate complex hardware into investor-friendly language. First complete draft delivered in 5 days.
+                        </p>
+                        <div class="step-deliverables">
+                            <span class="deliverable-tag">Complete Deck</span>
+                            <span class="deliverable-tag">15 Slides</span>
+                            <span class="deliverable-tag">PDF Preview</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="step-number-badge">3</div>
+                    <div class="step-content">
+                        <div class="step-day">Day 8-12</div>
+                        <h3 class="step-title">Revisions & Refinement</h3>
+                        <p class="step-description">
+                            Unlimited revision rounds. We refine messaging, adjust visuals, and perfect every detail until you're 100% satisfied with the result.
+                        </p>
+                        <div class="step-deliverables">
+                            <span class="deliverable-tag">Unlimited Edits</span>
+                            <span class="deliverable-tag">Feedback Loop</span>
+                            <span class="deliverable-tag">Final Review</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="step-number-badge">4</div>
+                    <div class="step-content">
+                        <div class="step-day">Day 13-14</div>
+                        <h3 class="step-title">Final Delivery & Handoff</h3>
+                        <p class="step-description">
+                            Receive editable files (PPT/Keynote), high-res PDFs, and a quick training on how to present it. Plus 30 days of post-delivery support included.
+                        </p>
+                        <div class="step-deliverables">
+                            <span class="deliverable-tag">Editable Files</span>
+                            <span class="deliverable-tag">PDF Export</span>
+                            <span class="deliverable-tag">Presentation Tips</span>
+                            <span class="deliverable-tag">30-Day Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Slider -->
+    <section class="network-slider-section" id="network">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Network</span>
+                <h2 class="section-title">Powerhouse Agencies<br>Behind Every Pitch</h2>
+                <p class="section-subtitle">5+ award-winning agencies and 20+ expert designers at your service</p>
+            </div>
+
+            <div class="slider-container">
+                <div class="swiper agencySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="agency-slide">
+                                <div class="agency-image">
+                                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop" alt="Jasmin Marketing">
+                                    <div class="agency-overlay">
+                                        <div class="agency-logo">J</div>
+                                    </div>
+                                </div>
+                                <div class="agency-info">
+                                    <h3 class="agency-name">Jasmin Marketing</h3>
+                                    <p class="agency-description">Full-service digital agency specializing in brand identity and growth marketing for tech startups.</p>
+                                    <div class="agency-stats">
+                                        <div class="agency-stat">
+                                            <i class="fas fa-award"></i>
+                                            <span>Award Winning</span>
+                                        </div>
+                                        <div class="agency-stat">
+                                            <i class="fas fa-users"></i>
+                                            <span>50+ Clients</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="agency-slide">
+                                <div class="agency-image">
+                                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" alt="Metadrift">
+                                    <div class="agency-overlay">
+                                        <div class="agency-logo">M</div>
+                                    </div>
+                                </div>
+                                <div class="agency-info">
+                                    <h3 class="agency-name">Metadrift</h3>
+                                    <p class="agency-description">Award-winning design & development studio creating exceptional digital experiences.</p>
+                                    <div class="agency-stats">
+                                        <div class="agency-stat">
+                                            <i class="fas fa-palette"></i>
+                                            <span>Design Excellence</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="agency-slide">
+                                <div class="agency-image">
+                                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop" alt="IT-Grow">
+                                    <div class="agency-overlay">
+                                        <div class="agency-logo">IT</div>
+                                    </div>
+                                </div>
+                                <div class="agency-info">
+                                    <h3 class="agency-name">IT-Grow</h3>
+                                    <p class="agency-description">Digital transformation experts for scaling tech companies across MENA.</p>
+                                    <div class="agency-stats">
+                                        <div class="agency-stat">
+                                            <i class="fas fa-rocket"></i>
+                                            <span>Growth Focus</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="agency-slide">
+                                <div class="agency-image">
+                                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600&fit=crop" alt="Partners">
+                                    <div class="agency-overlay">
+                                        <div class="agency-logo">+2</div>
+                                    </div>
+                                </div>
+                                <div class="agency-info">
+                                    <h3 class="agency-name">Regional Partners</h3>
+                                    <p class="agency-description">2+ MENA agencies providing localized design insights.</p>
+                                    <div class="agency-stats">
+                                        <div class="agency-stat">
+                                            <i class="fas fa-globe"></i>
+                                            <span>MENA Coverage</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="agency-slide">
+                                <div class="agency-image">
+                                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop" alt="Designers">
+                                    <div class="agency-overlay">
+                                        <div class="agency-logo">20+</div>
+                                    </div>
+                                </div>
+                                <div class="agency-info">
+                                    <h3 class="agency-name">Expert Designers</h3>
+                                    <p class="agency-description">Curated network of 20+ specialized pitch deck designers.</p>
+                                    <div class="agency-stats">
+                                        <div class="agency-stat">
+                                            <i class="fas fa-star"></i>
+                                            <span>Top Talent</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Slider -->
+    <section id="portfolio" class="reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Case Studies</span>
+                <h2 class="section-title">Hardware Stories<br>We've Brought to Life</h2>
+                <p class="section-subtitle">From POESAM winners to UNICEF award recipients — proven results</p>
+            </div>
+
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="iot">IoT</button>
+                <button class="filter-btn" data-filter="cleantech">CleanTech</button>
+                <button class="filter-btn" data-filter="maritime">Maritime</button>
+                <button class="filter-btn" data-filter="edtech">EdTech</button>
+            </div>
+
+            <div class="slider-container">
+                <div class="swiper portfolioSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" data-category="maritime">
+                            <div class="case-study-slide">
+                                <div class="case-study-image">
+                                    <img src="https://images.unsplash.com/photo-1605647540924-852290f6b0d5?w=800&h=600&fit=crop" alt="BathyNav">
+                                    <div class="case-study-overlay">
+                                        <div class="case-study-icon">
+                                            <i class="fas fa-ship"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case-study-info">
+                                    <div class="case-study-tags">
+                                        <span class="case-study-tag">Maritime Tech</span>
+                                    </div>
+                                    <h3 class="case-study-name">BathyNav</h3>
+                                    <p class="case-study-description">Autonomous vessel navigation system. Complete investor deck for Series A.</p>
+                                    <div class="case-study-metrics">
+                                        <div class="case-study-metric">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Webflow Featured</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide" data-category="cleantech">
+                            <div class="case-study-slide">
+                                <div class="case-study-image">
+                                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800&h=600&fit=crop" alt="GreenLab">
+                                    <div class="case-study-overlay">
+                                        <div class="case-study-icon">
+                                            <i class="fas fa-recycle"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case-study-info">
+                                    <div class="case-study-tags">
+                                        <span class="case-study-tag">CleanTech</span>
+                                        <span class="case-study-tag">UNICEF Award</span>
+                                    </div>
+                                    <h3 class="case-study-name">GreenLab</h3>
+                                    <p class="case-study-description">E-waste to innovation platform. Won UNICEF recognition.</p>
+                                    <div class="case-study-metrics">
+                                        <div class="case-study-metric">
+                                            <i class="fas fa-trophy"></i>
+                                            <span>UNICEF Award</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide" data-category="iot">
+                            <div class="case-study-slide">
+                                <div class="case-study-image">
+                                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop" alt="Tekkim">
+                                    <div class="case-study-overlay">
+                                        <div class="case-study-icon">
+                                            <i class="fas fa-microchip"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case-study-info">
+                                    <div class="case-study-tags">
+                                        <span class="case-study-tag">IoT Hardware</span>
+                                    </div>
+                                    <h3 class="case-study-name">Tekkim</h3>
+                                    <p class="case-study-description">Environmental monitoring IoT for industrial deployment.</p>
+                                    <div class="case-study-metrics">
+                                        <div class="case-study-metric">
+                                            <i class="fas fa-building"></i>
+                                            <span>SagemCOM</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide" data-category="edtech">
+                            <div class="case-study-slide">
+                                <div class="case-study-image">
+                                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=600&fit=crop" alt="DuoSpeak">
+                                    <div class="case-study-overlay">
+                                        <div class="case-study-icon">
+                                            <i class="fas fa-comments"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case-study-info">
+                                    <div class="case-study-tags">
+                                        <span class="case-study-tag">EdTech</span>
+                                    </div>
+                                    <h3 class="case-study-name">DuoSpeak</h3>
+                                    <p class="case-study-description">Language learning hardware platform investor materials.</p>
+                                    <div class="case-study-metrics">
+                                        <div class="case-study-metric">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Seed Ready</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide" data-category="edtech">
+                            <div class="case-study-slide">
+                                <div class="case-study-image">
+                                    <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&h=600&fit=crop" alt="BookJourney">
+                                    <div class="case-study-overlay">
+                                        <div class="case-study-icon">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case-study-info">
+                                    <div class="case-study-tags">
+                                        <span class="case-study-tag">EdTech</span>
+                                    </div>
+                                    <h3 class="case-study-name">BookJourney</h3>
+                                    <p class="case-study-description">Educational platform with hardware integration.</p>
+                                    <div class="case-study-metrics">
+                                        <div class="case-study-metric">
+                                            <i class="fas fa-palette"></i>
+                                            <span>Full Identity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide" data-category="iot">
+                            <div class="case-study-slide">
+                                <div class="case-study-image">
+                                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop" alt="SotuNec">
+                                    <div class="case-study-overlay">
+                                        <div class="case-study-icon">
+                                            <i class="fas fa-industry"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case-study-info">
+                                    <div class="case-study-tags">
+                                        <span class="case-study-tag">R&D Scaleup</span>
+                                    </div>
+                                    <h3 class="case-study-name">SotuNec</h3>
+                                    <p class="case-study-description">PME & R&D scaleup backed by Saraya Japan.</p>
+                                    <div class="case-study-metrics">
+                                        <div class="case-study-metric">
+                                            <i class="fas fa-yen-sign"></i>
+                                            <span>Saraya Backed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Transparent Pricing</span>
+                <h2 class="section-title">Simple, Fair Pricing<br>for African Startups</h2>
+                <p class="section-subtitle">No hidden fees, no surprises — just transparent pricing</p>
+            </div>
+
+            <div class="pricing-comparison">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>
+                                <div class="plan-header">
+                                    <div class="plan-name">One-Pager</div>
+                                    <div class="plan-price">$500</div>
+                                    <div class="plan-period">Fixed price</div>
+                                    <div class="plan-description">Perfect for quick pitches</div>
+                                    <a href="#contact" class="cta-button" style="width: 100%;">Get Started</a>
+                                </div>
+                            </th>
+                            <th style="background: rgba(139, 92, 246, 0.05);">
+                                <div class="plan-header">
+                                    <div class="plan-badge">Most Popular</div>
+                                    <div class="plan-name">Pitch Deck</div>
+                                    <div class="plan-price">$1,500</div>
+                                    <div class="plan-period">Launch offer</div>
+                                    <div class="plan-description">Complete investor-ready</div>
+                                    <a href="#contact" class="cta-button" style="width: 100%;">Get Started</a>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="plan-header">
+                                    <div class="plan-name">Full Package</div>
+                                    <div class="plan-price">$2,800</div>
+                                    <div class="plan-period">Complete suite</div>
+                                    <div class="plan-description">Everything for fundraising</div>
+                                    <a href="#contact" class="cta-button" style="width: 100%;">Get Started</a>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
+                                Pages/Slides
+                            </td>
+                            <td><span class="feature-value">1 Page</span></td>
+                            <td style="background: rgba(139, 92, 246, 0.02);"><span class="feature-value">15 Slides</span></td>
+                            <td><span class="feature-value">15+ Slides</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                                Delivery
+                            </td>
+                            <td><span class="feature-value">5-7 days</span></td>
+                            <td style="background: rgba(139, 92, 246, 0.02);"><span class="feature-value">2 weeks</span></td>
+                            <td><span class="feature-value">3 weeks</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="feature-icon"><i class="fas fa-sync"></i></div>
+                                Revisions
+                            </td>
+                            <td><span class="feature-value">2 rounds</span></td>
+                            <td style="background: rgba(139, 92, 246, 0.02);"><span class="feature-value">Unlimited</span></td>
+                            <td><span class="feature-value">Unlimited</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="feature-icon"><i class="fas fa-phone"></i></div>
+                                Strategy Call
+                            </td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td style="background: rgba(139, 92, 246, 0.02);"><span class="feature-value">30 min</span></td>
+                            <td><span class="feature-value">60 min</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <div style="display: inline-block; padding: 32px 60px; background: var(--bg-elevated); border: 2px solid var(--border-color); border-radius: 20px;">
+                    <p style="font-size: 20px; margin-bottom: 12px; font-weight: 800;">
+                        <i class="fas fa-trophy" style="color: var(--accent-green); margin-right: 12px;"></i>
+                        <strong>POESAM Winners:</strong> $1,200
+                    </p>
+                    <p style="color: var(--text-secondary); font-size: 15px;">
+                        Special discount for competition winners
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">FAQ</span>
+                <h2 class="section-title">Common Questions</h2>
+                <p class="section-subtitle">Everything you need to know</p>
+            </div>
+
+            <div class="faq-section">
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How long does a typical project take?</span>
+                            <div class="faq-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            Most pitch deck projects take 2 weeks from discovery to final delivery. This includes strategy calls, unlimited edits until you're 100% satisfied.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you work with pre-seed startups?</span>
+                            <div class="faq-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            Yes! We offer split payment plans and can accept equity (0.1-0.25%) for exceptional pre-seed startups.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What makes you different?</span>
+                            <div class="faq-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            We're hardware founders who've built IoT devices, reviewed 250+ pitches, and won 15+ hackathons. We understand both technical complexity AND investor mindset.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Ready to Transform<br>Your Hardware Pitch?</h2>
+                <p class="section-subtitle">Join 50+ hardware startups who've worked with us</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">
+                    <a href="mailto:hello@yanmu.studio" class="cta-button" style="font-size: 18px; padding: 18px 48px;">
+                        <i class="fas fa-envelope" style="margin-right: 12px;"></i>
+                        hello@yanmu.studio
+                    </a>
+                    <a href="#" class="cta-button-secondary" style="font-size: 18px; padding: 18px 48px;">
+                        <i class="fas fa-calendar" style="margin-right: 12px;"></i>
+                        Book Free Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Yanmu Studio ينمو</h4>
+                    <p>Hardware pitch deck design specialist for Africa & MENA deep tech startups.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <a href="#pricing">Pitch Deck Design</a>
+                    <a href="#pricing">One-Pager Design</a>
+                    <a href="#pricing">Fundraising Package</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="#why-us">Why Us</a>
+                    <a href="#process">Process</a>
+                    <a href="#portfolio">Portfolio</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Tunis, Tunisia</p>
+                    <p>hello@yanmu.studio</p>
+                    <p>+216 XX XXX XXX</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Yanmu Studio. Built for African DeepTech</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // Cursor
+        const cursor = document.querySelector('.cursor');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            const diffX = mouseX - cursorX;
+            const diffY = mouseY - cursorY;
+
+            cursorX += diffX * 0.2;
+            cursorY += diffY * 0.2;
+
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+
+        animateCursor();
+
+        const hoverElements = document.querySelectorAll('a, button, .filter-btn, .faq-question');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Sliders
+        const agencySwiper = new Swiper('.agencySwiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            centeredSlides: true,
+            loop: true,
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            breakpoints: {
+                320: { slidesPerView: 1, spaceBetween: 20 },
+                768: { slidesPerView: 2, spaceBetween: 30 },
+                1024: { slidesPerView: 3, spaceBetween: 30 }
+            }
+        });
+
+        let portfolioSwiper = new Swiper('.portfolioSwiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            centeredSlides: true,
+            loop: true,
+            autoplay: { delay: 3500, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            breakpoints: {
+                320: { slidesPerView: 1, spaceBetween: 20 },
+                768: { slidesPerView: 2, spaceBetween: 30 },
+                1024: { slidesPerView: 3, spaceBetween: 30 }
+            }
+        });
+
+        // Portfolio Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioSlides = document.querySelectorAll('.portfolioSwiper .swiper-slide');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                portfolioSlides.forEach(slide => {
+                    if (filter === 'all' || slide.dataset.category === filter) {
+                        slide.style.display = 'block';
+                    } else {
+                        slide.style.display = 'none';
+                    }
+                });
+
+                portfolioSwiper.update();
+            });
+        });
+
+        // FAQ
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
